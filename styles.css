@@ -1,0 +1,107 @@
+/* Reset de márgenes y paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos del cuerpo */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background: #fff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 300px;
+}
+
+/* Título */
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Grupo de entrada */
+.input-group {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+/* Campo de entrada de nueva tarea */
+#new-task {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+/* Botón de añadir tarea */
+#add-task {
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 0 4px 4px 0;
+    transition: background-color 0.3s;
+}
+
+#add-task:hover {
+    background-color: #218838;
+}
+
+/* Lista de tareas */
+#task-list {
+    list-style: none;
+}
+
+/* Elemento de tarea */
+.task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.task-item:last-child {
+    border-bottom: none;
+}
+
+/* Texto de la tarea */
+.task-text {
+    cursor: pointer;
+    flex: 1;
+}
+
+/* Tarea completada */
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #888;
+}
+
+/* Botón de eliminar */
+.delete-btn {
+    background-color: #dc3545;
+    border: none;
+    color: #fff;
+    padding: 5px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}

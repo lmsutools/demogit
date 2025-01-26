@@ -7,63 +7,115 @@
 
 /* Estilos del cuerpo */
 body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
+    padding: 20px;
 }
 
 /* Contenedor principal */
 .container {
-    background: #fff;
-    padding: 20px 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    width: 300px;
+    background: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Título */
 h1 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     color: #333;
+    font-size: 2em;
+    letter-spacing: 1px;
 }
 
 /* Grupo de entrada */
 .input-group {
     display: flex;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    position: relative;
 }
 
 /* Campo de entrada de nueva tarea */
 #new-task {
     flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px 0 0 6px;
     outline: none;
+    font-size: 1em;
+    transition: border-color 0.3s;
+}
+
+#new-task:focus {
+    border-color: #007BFF;
 }
 
 /* Botón de añadir tarea */
 #add-task {
-    padding: 10px;
+    padding: 12px 20px;
     border: none;
-    background-color: #28a745;
+    background-color: #007BFF;
     color: #fff;
     cursor: pointer;
-    border-radius: 0 4px 4px 0;
-    transition: background-color 0.3s;
+    border-radius: 0 6px 6px 0;
+    font-size: 1em;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 #add-task:hover {
-    background-color: #218838;
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#add-task:active {
+    transform: translateY(0);
 }
 
 /* Lista de tareas */
 #task-list {
     list-style: none;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+/* Scroll personalizado */
+#task-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#task-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#task-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#task-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
 }
 
 /* Elemento de tarea */
@@ -71,37 +123,84 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.3s;
 }
 
-.task-item:last-child {
-    border-bottom: none;
+.task-item:hover {
+    background-color: #f9f9f9;
 }
 
 /* Texto de la tarea */
 .task-text {
     cursor: pointer;
     flex: 1;
+    font-size: 1em;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.task-text:hover {
+    color: #007BFF;
 }
 
 /* Tarea completada */
 .task-item.completed .task-text {
     text-decoration: line-through;
     color: #888;
+    opacity: 0.7;
 }
 
 /* Botón de eliminar */
 .delete-btn {
-    background-color: #dc3545;
+    background-color: transparent;
     border: none;
-    color: #fff;
-    padding: 5px 8px;
+    color: #dc3545;
+    font-size: 1.2em;
     cursor: pointer;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: color 0.3s, transform 0.2s;
+    padding: 5px;
 }
 
 .delete-btn:hover {
-    background-color: #c82333;
+    color: #a71d2a;
+    transform: scale(1.1);
+}
+
+/* Botón de eliminar activo */
+.delete-btn:active {
+    transform: scale(1);
+}
+
+/* Mensaje cuando no hay tareas */
+.empty-message {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    margin-top: 20px;
+}
+
+/* Responsividad */
+@media (max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    #new-task, #add-task {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+
+    .task-text {
+        font-size: 0.95em;
+    }
+
+    .delete-btn {
+        font-size: 1em;
+    }
 }
